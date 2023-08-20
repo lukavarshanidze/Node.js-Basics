@@ -19,7 +19,7 @@ const requestHandler = (req, res) => {
         });
         return req.on('end', () => {
             const message = Buffer.concat(body).toString().split('=')[1];
-            fs.writeFile('data.html', message, (err) => {
+            fs.writeFile('message.txt', message, (err) => {
                 res.writeHead(302, {'Location': '/'})
                 res.write(`<div>${message}</div>`)
                 return res.end();
